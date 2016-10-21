@@ -13,6 +13,7 @@ var server string
 var client string
 var name string
 var seed int
+var fio *FileIO
 
 func config() {
   flag.StringVar(&server, "s", "localhost:1600", "server service")
@@ -31,6 +32,9 @@ func xlog(msg string) {
 }
 
 func main() {
+  fio = NewFileIO()
+  fio.ReadLines("/Users/richard/go/src/obfuscation-cell/bushmaster.pdf")
+
   config()
   rand.Seed(int64(seed))
   listener, err := net.Listen("tcp", server)
@@ -58,8 +62,7 @@ func sendRequests() {
 }
 
 func randomMessage() string {
-  var msgs []string = []string{"This is a great question.", "Here is a better question.", "Some random chunk of text."}
-  return encryptMessage(msgs[rand.Intn(len(msgs))])
+  return encryptMessage(fio.AssembleRandomString())
 }
 
 func writeRequest(conn net.Conn) {
