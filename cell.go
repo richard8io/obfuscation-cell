@@ -31,9 +31,20 @@ func xlog(msg string) {
   fmt.Println(fmt.Sprintf("%s: %s", name, msg))
 }
 
+func currentDir() string {
+  pwd, err := os.Getwd()
+  if err != nil {
+    fmt.Println(err)
+    os.Exit(1)
+  }
+  return pwd
+}
+
 func main() {
   fio = NewFileIO()
-  fio.ReadLines("/Users/richard/go/src/obfuscation-cell/bushmaster.pdf")
+  fpath := fmt.Sprintf("%s/sample.pdf", currentDir())
+  fmt.Println(fpath)
+  fio.ReadLines(fpath)
 
   config()
   rand.Seed(int64(seed))
