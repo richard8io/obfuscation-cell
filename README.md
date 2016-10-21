@@ -1,5 +1,5 @@
-# cell
-TODO.
+# obfuscation-cell
+Run your own network of cells that randomly transmit and receive encrypted chunks of data.
 
 #### Usage
 
