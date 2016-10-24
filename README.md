@@ -16,11 +16,12 @@ Usage:
   -c=10.1.1.10:1700: ip and port of client to connect to
   -n=john: cell name
   -x=8978: value to seed cell with
+  -f=10: how many seconds in between data transmission
 ```
 
 ###### example binary runs
 ```
-./cell -s=10.1.1.9:1600 -c=10.1.1.10:1700 -n=mary -x=17
+./cell -s=10.1.1.9:1600 -c=10.1.1.10:1700 -n=mary -x=17 -f=10
 ```
 
 ###### TODO
